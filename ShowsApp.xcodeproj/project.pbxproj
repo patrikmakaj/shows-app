@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7252D3B02AB9ABF20004EE92 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252D3AF2AB9ABF20004EE92 /* SearchResponse.swift */; };
 		72633E922AB844D100BBF70C /* ShowsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633E912AB844D100BBF70C /* ShowsAppApp.swift */; };
 		72633E942AB844D100BBF70C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633E932AB844D100BBF70C /* ContentView.swift */; };
 		72633E962AB844D300BBF70C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72633E952AB844D300BBF70C /* Assets.xcassets */; };
 		72633E992AB844D300BBF70C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72633E982AB844D300BBF70C /* Preview Assets.xcassets */; };
+		72633EA42AB9982500BBF70C /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633EA32AB9982500BBF70C /* Show.swift */; };
+		72633EA72AB9983500BBF70C /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633EA52AB9983500BBF70C /* NetworkingService.swift */; };
+		72633EA82AB9983500BBF70C /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633EA62AB9983500BBF70C /* NetworkConfiguration.swift */; };
+		72633EAA2AB998B200BBF70C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633EA92AB998B200BBF70C /* SearchView.swift */; };
+		72633EAC2AB9991100BBF70C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72633EAB2AB9991100BBF70C /* SearchViewModel.swift */; };
+		72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C3A2AB9FE99005559D7 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7252D3AF2AB9ABF20004EE92 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		72633E8E2AB844D100BBF70C /* ShowsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72633E912AB844D100BBF70C /* ShowsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAppApp.swift; sourceTree = "<group>"; };
 		72633E932AB844D100BBF70C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		72633E952AB844D300BBF70C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72633E982AB844D300BBF70C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		72633EA32AB9982500BBF70C /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		72633EA52AB9983500BBF70C /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		72633EA62AB9983500BBF70C /* NetworkConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		72633EA92AB998B200BBF70C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		72633EAB2AB9991100BBF70C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		72BF9C3A2AB9FE99005559D7 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +49,7 @@
 		72633E852AB844D100BBF70C = {
 			isa = PBXGroup;
 			children = (
+				72BF9C3A2AB9FE99005559D7 /* SearchBarView.swift */,
 				72633E902AB844D100BBF70C /* ShowsApp */,
 				72633E8F2AB844D100BBF70C /* Products */,
 			);
@@ -51,7 +66,11 @@
 		72633E902AB844D100BBF70C /* ShowsApp */ = {
 			isa = PBXGroup;
 			children = (
+				72633EA22AB9981400BBF70C /* Services */,
+				72633EA12AB9980600BBF70C /* Models */,
 				72633E912AB844D100BBF70C /* ShowsAppApp.swift */,
+				72633EA92AB998B200BBF70C /* SearchView.swift */,
+				72633EAB2AB9991100BBF70C /* SearchViewModel.swift */,
 				72633E932AB844D100BBF70C /* ContentView.swift */,
 				72633E952AB844D300BBF70C /* Assets.xcassets */,
 				72633E972AB844D300BBF70C /* Preview Content */,
@@ -65,6 +84,24 @@
 				72633E982AB844D300BBF70C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		72633EA12AB9980600BBF70C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72633EA32AB9982500BBF70C /* Show.swift */,
+				7252D3AF2AB9ABF20004EE92 /* SearchResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		72633EA22AB9981400BBF70C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72633EA62AB9983500BBF70C /* NetworkConfiguration.swift */,
+				72633EA52AB9983500BBF70C /* NetworkingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +174,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72633EA72AB9983500BBF70C /* NetworkingService.swift in Sources */,
+				72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */,
+				72633EAC2AB9991100BBF70C /* SearchViewModel.swift in Sources */,
+				7252D3B02AB9ABF20004EE92 /* SearchResponse.swift in Sources */,
 				72633E942AB844D100BBF70C /* ContentView.swift in Sources */,
+				72633EA42AB9982500BBF70C /* Show.swift in Sources */,
 				72633E922AB844D100BBF70C /* ShowsAppApp.swift in Sources */,
+				72633EAA2AB998B200BBF70C /* SearchView.swift in Sources */,
+				72633EA82AB9983500BBF70C /* NetworkConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
