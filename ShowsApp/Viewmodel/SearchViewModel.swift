@@ -25,7 +25,6 @@ extension SearchViewModel {
         networkingService.fetch(with: request) { [weak self] result in
             switch result {
             case .success(let show):
-                print("SUCCESS for \(searchWord): \(show)")
                 DispatchQueue.main.async {
                     self?.shows = show
                 }

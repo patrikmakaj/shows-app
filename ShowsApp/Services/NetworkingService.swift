@@ -26,7 +26,7 @@ final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
                     do {
                         let json = try JSONDecoder().decode([SearchResponse].self, from: data)
                         let shows: [Show] = json.map { $0.show }
-                        print(json)
+//                        print(json)
                         completion(.success(shows))
                     }
                     catch {
