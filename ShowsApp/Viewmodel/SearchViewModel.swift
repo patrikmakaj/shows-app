@@ -11,28 +11,40 @@ import SwiftUI
 final class SearchViewModel: ObservableObject {
     @ObservedObject var networkingService = NetworkingService()
     @Published var shows = [Show]()
+    @Published var cast: [Int: [Person]] = [:]
+    @Published var searchWord = ""
 }
 
-extension SearchViewModel {
-    func fetchData(searchWord: String) {
-        let request = Request(
-            path: "/search/shows?q="+searchWord,
-            method: .get,   
-            type: .json,
-            parameters: nil,
-            query: nil)
-        
-        networkingService.fetch(with: request) { [weak self] result in
+extension SearchViewModel{
+    func fetchSearchData(query: String) {
+        networkingService.fetchSearchedShows(query: query) { [weak self] result in
             switch result {
-            case .success(let show):
+            case .success(let searchShows):
                 DispatchQueue.main.async {
-                    self?.shows = show
+                    let shows = searchShows.map { $0.show }
+                    for show in shows {
+                        self?.fetchCast(id: show.id)
+                    }
+                    self?.shows = shows
                 }
-                
+                print("SUCCESS: \(String(describing: self?.shows))")
+            case .failure(let error):
+                print("ERROR: \(error)")
+            }
+        }
+    }
+    
+    func fetchCast(id: Int) {
+        networkingService.fetchCast(id: id){ [weak self] result in
+            switch result {
+            case .success(let showCast):
+                DispatchQueue.main.async {
+                    self?.cast[id] = showCast.map { $0.person }
+                }
+                print("SUCCESS: \(String(describing: showCast))")
             case .failure(let error):
                 print("ERROR: \(error)")
             }
         }
     }
 }
-

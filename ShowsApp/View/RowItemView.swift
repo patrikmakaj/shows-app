@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RowItemView: View {
+    @ObservedObject var viewModel: SearchViewModel
     let show: Show
     var body: some View {
         HStack {
@@ -33,10 +34,14 @@ struct RowItemView: View {
             VStack(alignment: .leading) {
                 Text(show.name)
                     .foregroundColor(Color("PrimaryWhite"))
+                    .font(.headline)
                 Group {
                     Text(show.premiereYear)
-                    Text(show.genres.joined(separator: ", "))
+                    if let cast = viewModel.cast[show.id] {
+                        Text("\(cast.prefix(2).map { $0.name }.joined(separator: ", "))")
+                    }
                 }
+                .font(.subheadline)
                 .foregroundColor(Color("PrimaryLightGray"))
             }
         }
@@ -47,6 +52,6 @@ struct RowItemView: View {
 
 struct RowItemView_Previews: PreviewProvider {
     static var previews: some View {
-        RowItemView(show: Show.example)
+        RowItemView(viewModel: SearchViewModel(), show: Show.example)
     }
 }

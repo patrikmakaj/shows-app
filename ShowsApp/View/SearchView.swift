@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
     @ObservedObject var viewModel = SearchViewModel()
     var body: some View {
         NavigationView {
@@ -16,15 +15,15 @@ struct SearchView: View {
                 Color("PrimaryDarkGray")
                     .ignoresSafeArea()
                 VStack {
-                    SearchBarView(searchText: $searchText)
-                        .onChange(of: searchText) { word in
-                            viewModel.fetchData(searchWord: word)
+                    SearchBarView(searchText: $viewModel.searchWord)
+                        .onChange(of: viewModel.searchWord) { word in
+                            viewModel.fetchSearchData(query: word)
                         }
-                        .accessibilityLabel("Search for \(searchText)")
+                        .accessibilityLabel("Search for \(viewModel.searchWord)")
                     Spacer()
                     if(!(viewModel.shows.isEmpty)) {
                         List(viewModel.shows) { show in
-                            RowItemView(show: show)
+                            RowItemView(viewModel: viewModel, show: show)
                                 .listRowBackground(Color("PrimaryBlack"))
                         }
                         .listStyle(.plain)

@@ -20,6 +20,8 @@
 		72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C3A2AB9FE99005559D7 /* SearchBarView.swift */; };
 		72BF9C3D2ABB0BF0005559D7 /* RowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C3C2ABB0BF0005559D7 /* RowItemView.swift */; };
 		72BF9C412ABB4062005559D7 /* Cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C402ABB4062005559D7 /* Cover.swift */; };
+		72BF9C462ABC61A7005559D7 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C452ABC61A6005559D7 /* Cast.swift */; };
+		72BF9C482ABC61B0005559D7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C472ABC61B0005559D7 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		72BF9C3A2AB9FE99005559D7 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		72BF9C3C2ABB0BF0005559D7 /* RowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItemView.swift; sourceTree = "<group>"; };
 		72BF9C402ABB4062005559D7 /* Cover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cover.swift; sourceTree = "<group>"; };
+		72BF9C452ABC61A6005559D7 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		72BF9C472ABC61B0005559D7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				72633EA32AB9982500BBF70C /* Show.swift */,
 				72BF9C402ABB4062005559D7 /* Cover.swift */,
 				7252D3AF2AB9ABF20004EE92 /* SearchResponse.swift */,
+				72BF9C452ABC61A6005559D7 /* Cast.swift */,
+				72BF9C472ABC61B0005559D7 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,11 +206,13 @@
 				72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */,
 				72633EAC2AB9991100BBF70C /* SearchViewModel.swift in Sources */,
 				7252D3B02AB9ABF20004EE92 /* SearchResponse.swift in Sources */,
+				72BF9C462ABC61A7005559D7 /* Cast.swift in Sources */,
 				72633E942AB844D100BBF70C /* ContentView.swift in Sources */,
 				72633EA42AB9982500BBF70C /* Show.swift in Sources */,
 				72BF9C3D2ABB0BF0005559D7 /* RowItemView.swift in Sources */,
 				72633E922AB844D100BBF70C /* ShowsAppApp.swift in Sources */,
 				72633EAA2AB998B200BBF70C /* SearchView.swift in Sources */,
+				72BF9C482ABC61B0005559D7 /* Person.swift in Sources */,
 				72BF9C412ABB4062005559D7 /* Cover.swift in Sources */,
 				72633EA82AB9983500BBF70C /* NetworkConfiguration.swift in Sources */,
 			);
