@@ -17,13 +17,14 @@ struct SearchBarView: View {
                 .frame(height: 40)
             HStack {
                 Image(systemName: "magnifyingglass.circle")
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("PrimaryLightGray"))
                     .font(.title)
                 
                 TextField("Search", text: $searchText)
                     .padding(.leading, 8)
-                    .foregroundColor(.primary)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .foregroundColor(Color("PrimaryLightGray"))
+                    .background(Color("PrimaryWhite"))
+                    .cornerRadius(10)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
@@ -32,7 +33,7 @@ struct SearchBarView: View {
                         searchText = ""
                     }) {
                         Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("PrimaryLightGray"))
                     }
                 }
             }
