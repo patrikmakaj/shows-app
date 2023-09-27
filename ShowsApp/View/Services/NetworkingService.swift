@@ -19,7 +19,9 @@ final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
         let urlSession: URLSession = URLSession.shared
         
         // Create a data task
-        urlSession.dataTask(with: urlRequest) { [weak self] data, response, error in
+        
+        //Removed weak self in [weak self] data, response, error in because of an error
+        urlSession.dataTask(with: urlRequest) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return }
             // Check for a successful HTTP response (status code 200)
             if httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299 {
