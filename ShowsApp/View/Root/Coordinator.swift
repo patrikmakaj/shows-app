@@ -12,5 +12,6 @@ import UIKit
 import SwiftUI
 
 protocol Coordinator {
+    var tabBarItem: UITabBarItem { get }
     func start() -> UIViewController
 }

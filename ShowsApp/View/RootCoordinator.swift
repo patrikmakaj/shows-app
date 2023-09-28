@@ -12,25 +12,37 @@ import SwiftUI
 final class BaseNavigationController: UINavigationController {}
 
 final class RootCoordinator: Coordinator, ObservableObject {
-    let homeTabCoordinator = HomeCoordinator()
-    let searchTabCoordinator = SearchCoordinator()
+    
+    var childCoordinators: [Coordinator] = []
+    
+    init() {
+        childCoordinators = [HomeCoordinator(), SearchCoordinator(), FavoritesCoordinator()]
+    }
     
     func start() -> UIViewController {
         return createTabBarController()
     }
     
+    var tabBarItem: UITabBarItem {
+        UITabBarItem(title: "Root", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
+    }
+    
     func createTabBarController() -> UIViewController {
         let tabBarController = UITabBarController()
-
-        let homeVC = homeTabCoordinator.start()
-        let searchVC = searchTabCoordinator.start()
-        
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: UIImage(systemName: "house.fill"))
-        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
-    
-        tabBarController.viewControllers = [homeVC, searchVC]
+         var viewControllers: [UIViewController] = []
+         for coordinator in childCoordinators {
+             let coordinatorVC = coordinator.start()
+             coordinatorVC.tabBarItem = coordinator.tabBarItem
+             viewControllers.append(coordinatorVC)
+         }
+        tabBarController.viewControllers = viewControllers
+        let appearance = UITabBarAppearance()
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryLightGray"))]
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color("PrimaryLightGray"))
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryYellow"))]
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color("PrimaryYellow"))
+        tabBarController.tabBar.standardAppearance = appearance
         tabBarController.selectedIndex = 0
-        
         return tabBarController
     }
 }

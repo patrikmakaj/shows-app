@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import UIKit
+import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UITabBar.appearance().backgroundColor = UIColor(Color("PrimaryDarkGray"))
         return true
     }
 

@@ -16,6 +16,10 @@ final class HomeCoordinator: Coordinator {
         return createHomeController()
     }
     
+    var tabBarItem: UITabBarItem {
+        UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: UIImage(systemName: "house.fill"))
+    }
+    
     private func createHomeController() -> UIViewController {
         let vm = HomeViewModel()
         let homeView = HomeView(viewModel: vm)
