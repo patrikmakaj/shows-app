@@ -14,6 +14,7 @@ protocol NetworkingServiceProtocol {
 }
 
 final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
+    
     func fetchDataGenerics<T>(of type: T.Type, with request: Request, completion: @escaping (Result<T, ErrorHandler>) -> Void) where T : Decodable, T : Encodable {
         guard let urlRequest =  configureRequest(request) else { return }
         let urlSession: URLSession = URLSession.shared
