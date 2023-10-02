@@ -12,7 +12,7 @@ struct RowItemView: View {
     let show: Show
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: show.image.original)) { phase in
+            AsyncImage(url: URL(string: show.image!.original)) { phase in
                 switch phase {
                 case .success(let image):
                     image

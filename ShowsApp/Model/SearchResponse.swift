@@ -8,6 +8,5 @@
 import Foundation
 
 struct SearchResponse: Codable {
-    var score: Double
     var show: Show
 }

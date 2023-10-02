@@ -15,7 +15,7 @@ final class SearchViewModel: ObservableObject {
     @Published var searchWord = ""
 }
 
-extension SearchViewModel{
+extension SearchViewModel {
     func fetchSearchData(query: String) {
         networkingService.fetchSearchedShows(query: query) { [weak self] result in
             switch result {

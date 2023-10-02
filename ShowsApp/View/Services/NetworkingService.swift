@@ -11,6 +11,7 @@ protocol NetworkingServiceProtocol {
     func fetchDataGenerics<T: Codable>(of type: T.Type, with request: Request, completion: @escaping (Result<T, ErrorHandler>) -> Void) where T: Codable
     func fetchSearchedShows(query: String, completion: @escaping (Result<[SearchResponse], ErrorHandler>) -> Void)
     func fetchCast(id: Int, completion: @escaping (Result<[Cast], ErrorHandler>) -> Void)
+    func fetchSchedule(completion: @escaping (Result<[SearchResponse], ErrorHandler>) -> Void)
 }
 
 final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
@@ -84,6 +85,28 @@ final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
             }
         }
         
+    }
+    
+    func fetchSchedule(completion: @escaping (Result<[SearchResponse], ErrorHandler>) -> Void) {
+        let currentDate = Date.now
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDate = dateFormatter.string(from: currentDate)
+        let request = Request(
+            path: "/schedule?country=US&date=2023-10-02",
+            method: .get,
+            type: .json,
+            parameters: nil,
+            query: nil)
+        
+        fetchDataGenerics(of: [SearchResponse].self, with: request) { result in
+            switch result {
+            case .success(let succ):
+                completion(.success(succ))
+            case .failure(let error):
+                print("ERROR: \(error)")
+            }
+        }
     }
     
 }

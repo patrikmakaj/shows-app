@@ -12,13 +12,16 @@ struct Show: Identifiable, Codable {
     let id: Int
     let url: String
     let name: String
-    let image: Cover
+    let image: Cover?
     let language: String
     let genres: [String]
     let premiered: String?
     let rating: Rating
-    
-    static let example = Show(id: 1, url: "Unknown", name: "Game of thrones", image: Cover(original: "https://seeklogo.com/images/G/game-of-thrones-logo-3A574D3ECB-seeklogo.com.png"), language: "EN", genres: ["Fantasy"], premiered: "2011-08-08", rating: Rating(average: 6.5))
+    let airtime: Date?
+    let runtime: Int?
+    let averageRuntime: Int?
+    let schedule: Schedule
+    static let example = Show(id: 1, url: "Unknown", name: "Game of thrones", image: Cover(original: "https://seeklogo.com/images/G/game-of-thrones-logo-3A574D3ECB-seeklogo.com.png"), language: "EN", genres: ["Fantasy"], premiered: "2011-08-08", rating: Rating(average: 6.5), airtime: Date.now, runtime: 60, averageRuntime: 45, schedule: Schedule.example)
 
     
     var premiereYear: String {
@@ -32,7 +35,7 @@ struct Show: Identifiable, Codable {
             return String(unwrappedRating)
         }
         else {
-            return "Unknown rating"
+            return "Unknown"
         }
     }
     

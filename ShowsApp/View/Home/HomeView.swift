@@ -9,47 +9,62 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
-    let items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     var body: some View {
         NavigationView {
             VStack {
-                VStack {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 5) {
-                            ForEach(viewModel.shows) { show in
-                                ScrollViewItem(show: show)
-                                    .padding()
+                HStack {
+                    Text("Shows")
+                        .font(.title2.bold())
+                        .foregroundColor(Color("PrimaryLightGray"))
+                    Spacer()
+                    Button("Show all") {}
+                        .font(.footnote)
+                        .foregroundColor(Color("PrimaryYellow"))
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.shows) { show in
+                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
+                                HomeScrollViewItem(show: show)
+                                    .frame(width: 180, height: 350)
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
-                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 1)
                             }
                         }
-                        .padding()
                     }
                 }
                 .onAppear {
-                    viewModel.fetchSearchData(query: "Top") // Fetch data when the view appearsr
+                    viewModel.fetchSearchData(query: "Top")
                 }
-                Text("SCHEDULE PLACEHOLDER")
+                HStack {
+                    Text("Schedule")
+                        .font(.title3.bold())
+                        .foregroundColor(Color("PrimaryLightGray"))
+                    Spacer()
+                    Button("Show all") {}
+                        .font(.footnote)
+                        .foregroundColor(Color("PrimaryYellow"))
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.scheduleShows) { show in
+                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
+                                ScheduleScrollViewItem(show: show)
+                                    .frame(width: 125, height: 230)
+                                    .background(Color.gray.opacity(0.1))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 1)
+                            }
+                        }
+                    }
+                }
+                .onAppear {
+                    viewModel.fetchSchedule()
+                }
             }
-        }
-        .navigationTitle("Shows")
-        
-    }
-}
-
-
-struct ItemView: View {
-    var text: String
-    
-    var body: some View {
-        VStack {
-            Text(text)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(10)
         }
     }
 }
