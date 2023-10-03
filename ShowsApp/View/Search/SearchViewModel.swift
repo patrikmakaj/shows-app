@@ -13,6 +13,7 @@ final class SearchViewModel: ObservableObject {
     @Published var shows = [Show]()
     @Published var cast: [Int: [Person]] = [:]
     @Published var searchWord = ""
+    var onShowTapped: ((Show) -> Void)?
 }
 
 extension SearchViewModel {

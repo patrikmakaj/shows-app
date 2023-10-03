@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 import SwiftUI
 
@@ -17,6 +15,7 @@ final class DetailCoordinator: Coordinator {
     func start() -> UIViewController {
         return createDetailController()
     }
+    
     
     var tabBarItem: UITabBarItem {
         UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: UIImage(systemName: "house.fill"))

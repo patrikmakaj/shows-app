@@ -25,6 +25,9 @@ struct SearchView: View {
                         List(viewModel.shows) { show in
                             RowItemView(viewModel: viewModel, show: show)
                                 .listRowBackground(Color("PrimaryBlack"))
+                                .onTapGesture {
+                                    viewModel.onShowTapped?(show)
+                                }
                         }
                         .listStyle(.plain)
                     }

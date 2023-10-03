@@ -84,7 +84,6 @@ final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
                 print("ERROR: \(error)")
             }
         }
-        
     }
     
     func fetchSchedule(completion: @escaping (Result<[SearchResponse], ErrorHandler>) -> Void) {
@@ -93,7 +92,7 @@ final class NetworkingService: ObservableObject, NetworkingServiceProtocol {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let formattedDate = dateFormatter.string(from: currentDate)
         let request = Request(
-            path: "/schedule?country=US&date=2023-10-02",
+            path: "/schedule?country=US&date="+formattedDate,
             method: .get,
             type: .json,
             parameters: nil,

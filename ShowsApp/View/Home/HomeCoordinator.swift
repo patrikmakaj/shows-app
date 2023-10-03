@@ -24,6 +24,18 @@ final class HomeCoordinator: Coordinator {
         let vm = HomeViewModel()
         let homeView = HomeView(viewModel: vm)
         let vc = UIHostingController(rootView: homeView)
+        vm.onShowTapped = { show in
+            _ = self.createDetailView(show: show)
+            
+        }
+        navigationController.pushViewController(vc, animated: true)
+        return navigationController
+    }
+    
+    private func createDetailView(show: Show) -> UIViewController {
+        let vm = DetailViewModel(show: show)
+        let detailView = DetailView(viewModel: vm)
+        let vc = UIHostingController(rootView: detailView)
         navigationController.pushViewController(vc, animated: true)
         return navigationController
     }

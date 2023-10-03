@@ -25,18 +25,19 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.shows) { show in
-                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
                                 HomeScrollViewItem(show: show)
                                     .frame(width: 180, height: 350)
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
                                     .padding(.horizontal, 1)
-                            }
+                                    .onTapGesture {
+                                        viewModel.onShowTapped?(show)
+                                    }
                         }
                     }
                 }
                 .onAppear {
-                    viewModel.fetchSearchData(query: "Top")
+                    viewModel.fetchSearchData(query: "The")
                 }
                 HStack {
                     Text("Schedule")
@@ -51,13 +52,14 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.scheduleShows) { show in
-                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
                                 ScheduleScrollViewItem(show: show)
                                     .frame(width: 125, height: 230)
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
                                     .padding(.horizontal, 1)
-                            }
+                                    .onTapGesture {
+                                        viewModel.onShowTapped?(show)
+                                    }
                         }
                     }
                 }

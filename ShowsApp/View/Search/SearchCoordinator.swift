@@ -20,10 +20,6 @@ final class SearchCoordinator: Coordinator {
     
     public var tabBarItem: UITabBarItem {
         let tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.cyan
-        ]
-        let attributedTitle = NSAttributedString(string: "Search", attributes: attributes)
         tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.cyan], for: .selected)
         tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.cyan], for: .normal)
         return tabBarItem
@@ -33,7 +29,20 @@ final class SearchCoordinator: Coordinator {
         let vm = SearchViewModel()
         let searchView = SearchView(viewModel: vm)
         let vc = UIHostingController(rootView: searchView)
+        vm.onShowTapped = { show in
+            _ = self.createDetailView(show: show)
+            
+        }
         navigationController.pushViewController(vc, animated: true)
         return navigationController
     }
+    
+    private func createDetailView(show: Show) -> UIViewController {
+        let vm = DetailViewModel(show: show)
+        let detailView = DetailView(viewModel: vm)
+        let vc = UIHostingController(rootView: detailView)
+        navigationController.pushViewController(vc, animated: true)
+        return navigationController
+    }
+    
 }

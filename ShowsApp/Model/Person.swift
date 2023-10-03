@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Person: Identifiable, Codable {
+struct Person: Identifiable, Codable, Hashable {
     let id: Int
     let name: String
+    let image: Cover
 }

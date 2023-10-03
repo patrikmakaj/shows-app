@@ -12,6 +12,7 @@ final class HomeViewModel: ObservableObject {
     @ObservedObject var networkingService = NetworkingService()
     @Published var shows = [Show]()
     @Published var scheduleShows = [Show]()
+    var onShowTapped: ((Show) -> Void)?
 }
 
 extension HomeViewModel {
@@ -45,4 +46,5 @@ extension HomeViewModel {
             }
         }
     }
+    
 }

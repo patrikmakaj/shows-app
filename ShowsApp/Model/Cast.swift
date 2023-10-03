@@ -9,4 +9,5 @@ import Foundation
 
 struct Cast: Codable {
     let person: Person
+    let character: Character?
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Cover: Codable {
+struct Cover: Codable, Equatable, Hashable {
     let original: String
 }

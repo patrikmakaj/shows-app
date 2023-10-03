@@ -50,17 +50,19 @@ struct ScheduleScrollViewItem: View {
                 .alignmentGuide(.top) { _ in 0 }
                 .alignmentGuide(.leading) { _ in 0 }
             }
-            
+            Spacer()
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(show.schedule.time)")
                     .font(.caption)
                     .foregroundColor(Color("PrimaryLightGray"))
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.leading, 15)
+                    .padding(.leading, 2)
                 Text(show.name)
-                    .font(.callout)
+                    .font(.caption2)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                     .foregroundColor(Color("PrimaryWhite"))
-                    .padding(.leading, 15)
+                    .padding(.leading, 2)
             }
             .padding(.bottom, 5)
         }
