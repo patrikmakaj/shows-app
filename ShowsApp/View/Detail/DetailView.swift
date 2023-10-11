@@ -84,6 +84,9 @@ struct DetailView: View {
 
                     }
                 }
+                Button("Favorite") {
+                    viewModel.toggleFavorites()
+                }
             }
         }
 
@@ -93,6 +96,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(viewModel: DetailViewModel(show: Show.example))
+        DetailView(viewModel: DetailViewModel(show: Show.example, favoriteService: FavoriteService(persistenceService: PersistenceService())))
     }
 }

@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct Show: Identifiable, Codable {
+struct Show: Identifiable, Codable, Equatable {
     let id: Int
     let url: String
     let name: String
     let image: Cover?
-    let language: String
+    let language: String?
     let genres: [String]
     let premiered: String?
     let rating: Rating
@@ -22,6 +22,11 @@ struct Show: Identifiable, Codable {
     let averageRuntime: Int?
     let schedule: Schedule
     let summary: String
+    
+    static func == (lhs: Show, rhs: Show) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
+    
     static let example = Show(id: 1, url: "Unknown", name: "Game of thrones", image: Cover(original: "https://seeklogo.com/images/G/game-of-thrones-logo-3A574D3ECB-seeklogo.com.png"), language: "EN", genres: ["Fantasy"], premiered: "2011-08-08", rating: Rating(average: 6.5), airtime: Date.now, runtime: 60, averageRuntime: 45, schedule: Schedule.example, summary: "Summary of the movie")
 
     

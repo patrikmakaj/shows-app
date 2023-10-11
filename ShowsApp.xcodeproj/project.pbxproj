@@ -42,6 +42,10 @@
 		72BF9C4E2ABDC29C005559D7 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C4D2ABDC29C005559D7 /* FavoritesView.swift */; };
 		72BF9C502ABDC49A005559D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C4F2ABDC49A005559D7 /* AppDelegate.swift */; };
 		72BF9C522ABDC4C3005559D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF9C512ABDC4C3005559D7 /* SceneDelegate.swift */; };
+		72CF15EA2AD535AD00063908 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15E72AD535AD00063908 /* FavoriteService.swift */; };
+		72CF15EB2AD535AD00063908 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15E82AD535AD00063908 /* PersistenceService.swift */; };
+		72CF15EC2AD535AD00063908 /* ServicesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15E92AD535AD00063908 /* ServicesFactory.swift */; };
+		72CF15EE2AD6A42600063908 /* FavoritesItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +86,10 @@
 		72BF9C4F2ABDC49A005559D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72BF9C512ABDC4C3005559D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		72BF9C532ABDC4F9005559D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72CF15E72AD535AD00063908 /* FavoriteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		72CF15E82AD535AD00063908 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		72CF15E92AD535AD00063908 /* ServicesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesFactory.swift; sourceTree = "<group>"; };
+		72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,9 @@
 		72633EA22AB9981400BBF70C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				72CF15E72AD535AD00063908 /* FavoriteService.swift */,
+				72CF15E82AD535AD00063908 /* PersistenceService.swift */,
+				72CF15E92AD535AD00063908 /* ServicesFactory.swift */,
 				72633EA62AB9983500BBF70C /* NetworkConfiguration.swift */,
 				72633EA52AB9983500BBF70C /* NetworkingService.swift */,
 			);
@@ -196,6 +207,7 @@
 				72BF9C4D2ABDC29C005559D7 /* FavoritesView.swift */,
 				7274F5DF2AC564440079DE1F /* FavoritesViewModel.swift */,
 				7274F5E12AC5645A0079DE1F /* FavoritesCoordinator.swift */,
+				72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -304,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CF15EB2AD535AD00063908 /* PersistenceService.swift in Sources */,
 				72633EA72AB9983500BBF70C /* NetworkingService.swift in Sources */,
 				72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */,
 				7274F5E42AC71FA80079DE1F /* HomeScrollViewItem.swift in Sources */,
@@ -311,6 +324,7 @@
 				72BF9C4C2ABDC27C005559D7 /* HomeView.swift in Sources */,
 				7274F5E22AC5645A0079DE1F /* FavoritesCoordinator.swift in Sources */,
 				7252D3B02AB9ABF20004EE92 /* SearchResponse.swift in Sources */,
+				72CF15EC2AD535AD00063908 /* ServicesFactory.swift in Sources */,
 				7274F5DB2AC49BFB0079DE1F /* HomeViewModel.swift in Sources */,
 				72BF9C462ABC61A7005559D7 /* Cast.swift in Sources */,
 				7274F5F32ACB12D30079DE1F /* DetailCoordinator.swift in Sources */,
@@ -323,6 +337,7 @@
 				7274F5EF2ACB12B70079DE1F /* DetailView.swift in Sources */,
 				7274F5E82ACAE05C0079DE1F /* Schedule.swift in Sources */,
 				7274F5E62AC722790079DE1F /* Rating.swift in Sources */,
+				72CF15EA2AD535AD00063908 /* FavoriteService.swift in Sources */,
 				72BF9C3D2ABB0BF0005559D7 /* RowItemView.swift in Sources */,
 				72633E922AB844D100BBF70C /* ShowsAppApp.swift in Sources */,
 				7274F5D52AC49B8C0079DE1F /* Coordinator.swift in Sources */,
@@ -335,6 +350,7 @@
 				7274F5EC2ACAFC3E0079DE1F /* ScheduleScrollViewItem.swift in Sources */,
 				72BF9C502ABDC49A005559D7 /* AppDelegate.swift in Sources */,
 				7274F5E02AC564440079DE1F /* FavoritesViewModel.swift in Sources */,
+				72CF15EE2AD6A42600063908 /* FavoritesItemView.swift in Sources */,
 				72633EA82AB9983500BBF70C /* NetworkConfiguration.swift in Sources */,
 				7274F5D92AC49BE30079DE1F /* HomeCoordinator.swift in Sources */,
 			);

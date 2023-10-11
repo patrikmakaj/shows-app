@@ -25,7 +25,7 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.shows) { show in
-                                HomeScrollViewItem(show: show)
+                            HomeScrollViewItem(favoriteService: viewModel.favoritesService, show: show)
                                     .frame(width: 180, height: 350)
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
@@ -52,7 +52,7 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.scheduleShows) { show in
-                                ScheduleScrollViewItem(show: show)
+                                ScheduleScrollViewItem(favoriteService: viewModel.favoritesService, show: show)
                                     .frame(width: 125, height: 230)
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
@@ -73,6 +73,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        HomeView(viewModel: HomeViewModel(favoritesService: ServiceFactory().favoriteService))
     }
 }

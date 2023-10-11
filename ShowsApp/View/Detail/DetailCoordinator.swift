@@ -22,7 +22,7 @@ final class DetailCoordinator: Coordinator {
     }
     
     private func createDetailController() -> UIViewController {
-        let vm = DetailViewModel(show: Show.example)
+        let vm = DetailViewModel(show: Show.example, favoriteService: FavoriteService(persistenceService: PersistenceService()))
         let detailView = DetailView(viewModel: vm)
         let vc = UIHostingController(rootView: detailView)
         navigationController.pushViewController(vc, animated: true)

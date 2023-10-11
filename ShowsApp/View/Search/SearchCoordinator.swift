@@ -38,7 +38,7 @@ final class SearchCoordinator: Coordinator {
     }
     
     private func createDetailView(show: Show) -> UIViewController {
-        let vm = DetailViewModel(show: show)
+        let vm = DetailViewModel(show: show, favoriteService: FavoriteService(persistenceService: PersistenceService()))
         let detailView = DetailView(viewModel: vm)
         let vc = UIHostingController(rootView: detailView)
         navigationController.pushViewController(vc, animated: true)

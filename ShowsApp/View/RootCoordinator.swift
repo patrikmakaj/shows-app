@@ -13,10 +13,12 @@ final class BaseNavigationController: UINavigationController {}
 
 final class RootCoordinator: Coordinator, ObservableObject {
     
+    let serviceFactory: ServiceFactory
     var childCoordinators: [Coordinator] = []
     
-    init() {
-        childCoordinators = [HomeCoordinator(), SearchCoordinator(), FavoritesCoordinator()]
+    init(serviceFactory: ServiceFactory) {
+        self.serviceFactory = serviceFactory
+        childCoordinators = [HomeCoordinator(serviceFactory: serviceFactory), SearchCoordinator(), FavoritesCoordinator(serviceFactory: serviceFactory)]
     }
     
     func start() -> UIViewController {

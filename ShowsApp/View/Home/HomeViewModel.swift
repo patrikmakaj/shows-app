@@ -13,6 +13,10 @@ final class HomeViewModel: ObservableObject {
     @Published var shows = [Show]()
     @Published var scheduleShows = [Show]()
     var onShowTapped: ((Show) -> Void)?
+    let favoritesService: FavoriteServiceProtocol
+    init(favoritesService: FavoriteServiceProtocol) {
+        self.favoritesService = favoritesService
+    }
 }
 
 extension HomeViewModel {

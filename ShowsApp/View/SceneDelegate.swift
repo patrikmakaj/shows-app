@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
-        let rootCoordinator = RootCoordinator()
+        let rootCoordinator = RootCoordinator(serviceFactory: ((UIApplication.shared.delegate) as! AppDelegate).serviceFactory)
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = rootCoordinator.start()
         self.window = window

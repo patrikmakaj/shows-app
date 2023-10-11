@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScheduleScrollViewItem: View {
+    let favoriteService: FavoriteServiceProtocol
     let show: Show
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -33,11 +34,11 @@ struct ScheduleScrollViewItem: View {
                 VStack {
                     HStack {
                         Button(action: {
-                            // Handle favorite action
+                            favoriteService.toggleFavorite(show: show)
                         }) {
                             Image(systemName: "heart.fill")
                                 .padding(10)
-                                .foregroundColor(Color("PrimaryYellow"))
+                                .foregroundColor(favoriteService.isfavorite(show: show) ? Color("PrimaryYellow") : Color("PrimaryLightGray"))
                                 .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("PrimaryBlack")))
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -73,6 +74,7 @@ struct ScheduleScrollViewItem: View {
 
 struct ScheduleScrollViewItem_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleScrollViewItem(show: Show.example)
+        ScheduleScrollViewItem(favoriteService: FavoriteService(persistenceService: PersistenceService()), show: Show.example)
     }
 }
+

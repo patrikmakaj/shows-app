@@ -10,12 +10,28 @@ import SwiftUI
 struct FavoritesView: View {
     @ObservedObject var viewModel: FavoritesViewModel
     var body: some View {
-        Text("Favorites view")
+        ScrollView {
+            LazyVGrid(columns: [GridItem(), GridItem()]) {
+                ForEach(viewModel.favorites) { show in
+                    VStack {
+                        FavoritesItemView(viewModel: viewModel, show: show)
+                            .onTapGesture {
+                                viewModel.onShowTapped?(show)
+                            }
+                    }
+                    .frame(height: 210)
+                }
+            }
+            .padding()
+        }
+        .onAppear {
+            viewModel.refresh()
+        }
     }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(viewModel: FavoritesViewModel())
+        FavoritesView(viewModel: FavoritesViewModel(favoritesService: FavoriteService(persistenceService: PersistenceService())))
     }
 }

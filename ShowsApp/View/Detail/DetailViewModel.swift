@@ -12,8 +12,12 @@ final class DetailViewModel: ObservableObject {
     let show: Show
     @ObservedObject var networkingService = NetworkingService()
     @Published var cast: [Int: (Person, Character?)] = [:]
-    init(show: Show) {
+    @Published var isFavorite: Bool
+    private let favoriteService: FavoriteServiceProtocol
+    init(show: Show, favoriteService: FavoriteServiceProtocol) {
+        self.favoriteService = favoriteService
         self.show = show
+        self.isFavorite = favoriteService.isfavorite(show: show)
         fetchCast()
     }
 }
@@ -37,6 +41,14 @@ extension DetailViewModel {
                 print("ERROR: \(error)")
             }
         }
+    }
+    
+    func toggleFavorites() {
+        isFavorite = favoriteService.toggleFavorite(show: show).isAdded
+    }
+    
+    func refresh() {
+        self.isFavorite = favoriteService.isfavorite(show: show)
     }
 
 }
