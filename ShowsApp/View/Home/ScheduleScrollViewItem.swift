@@ -10,6 +10,14 @@ import SwiftUI
 struct ScheduleScrollViewItem: View {
     let favoriteService: FavoriteServiceProtocol
     let show: Show
+    @State private var favorites: [Show]
+
+    init(favoriteService: FavoriteServiceProtocol, show: Show) {
+        self.favoriteService = favoriteService
+        self.show = show
+        _favorites = State(initialValue: favoriteService.favorites)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack {

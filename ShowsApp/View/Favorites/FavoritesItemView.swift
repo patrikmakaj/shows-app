@@ -19,7 +19,7 @@ struct FavoritesItemView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .frame(width: 150, height: 200) // Adjust the size of the rounded rectangle
+                .frame(width: 150, height: 200)
             ZStack {
                 AsyncImage(url: URL(string: show.image?.original ?? "")) { phase in
                     switch phase {
@@ -28,8 +28,8 @@ struct FavoritesItemView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .clipped()
-                            .frame(width: 150, height: 200) // Match the size of the rounded rectangle
-                            .cornerRadius(5) // Apply the same corner radius as the RoundedRectangle
+                            .frame(width: 150, height: 200)
+                            .cornerRadius(5)
                     case .failure:
                         Image(systemName: "questionmark")
                             .font(.largeTitle)
@@ -38,7 +38,7 @@ struct FavoritesItemView: View {
                         ProgressView()
                     }
                 }
-                .frame(width: 150, height: 200) // Match the size of the rounded rectangle
+                .frame(width: 150, height: 200)
             }
             VStack {
                 HStack {

@@ -27,9 +27,8 @@ final class FavoritesCoordinator: Coordinator {
     private func createFavoritesController() -> UIViewController {
         let vm = FavoritesViewModel(favoritesService: serviceFactory.favoriteService)
         let favoritesView = FavoritesView(viewModel: vm)
-        vm.onShowTapped = { show in
-            _ = self.createDetailView(show: show)
-            
+        vm.onShowTapped = { [weak self] show in
+            _ = self?.createDetailView(show: show)
         }
         let vc = UIHostingController(rootView: favoritesView)
         navigationController.pushViewController(vc, animated: true)

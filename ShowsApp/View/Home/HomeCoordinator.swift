@@ -29,14 +29,13 @@ final class HomeCoordinator: Coordinator {
         let vm = HomeViewModel(favoritesService: serviceFactory.favoriteService)
         let homeView = HomeView(viewModel: vm)
         let vc = UIHostingController(rootView: homeView)
-        vm.onShowTapped = { show in
-            _ = self.createDetailView(show: show)
-            
+        vm.onShowTapped = { [weak self] show in
+            _ = self?.createDetailView(show: show)
         }
         navigationController.pushViewController(vc, animated: true)
         return navigationController
     }
-    
+        
     private func createDetailView(show: Show) -> UIViewController {
         let vm = DetailViewModel(show: show, favoriteService: FavoriteService(persistenceService: PersistenceService()))
         let detailView = DetailView(viewModel: vm)

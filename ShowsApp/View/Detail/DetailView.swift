@@ -85,7 +85,7 @@ struct DetailView: View {
                     }
                 }
                 Button("Favorite") {
-                    viewModel.toggleFavorites()
+                    _ = viewModel.favoriteService.toggleFavorite(show: viewModel.show)
                 }
             }
         }

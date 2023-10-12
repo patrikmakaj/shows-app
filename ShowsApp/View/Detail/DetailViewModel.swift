@@ -13,7 +13,7 @@ final class DetailViewModel: ObservableObject {
     @ObservedObject var networkingService = NetworkingService()
     @Published var cast: [Int: (Person, Character?)] = [:]
     @Published var isFavorite: Bool
-    private let favoriteService: FavoriteServiceProtocol
+    let favoriteService: FavoriteServiceProtocol
     init(show: Show, favoriteService: FavoriteServiceProtocol) {
         self.favoriteService = favoriteService
         self.show = show
@@ -29,11 +29,9 @@ extension DetailViewModel {
             case .success(let showCast):
                 DispatchQueue.main.async {
                     var castDictionary: [Int: (Person, Character?)] = self?.cast ?? [:]
-
                     for castItem in showCast {
                         castDictionary.updateValue((castItem.person, castItem.character), forKey: castItem.person.id)
                     }
-
                     self?.cast = castDictionary
                 }
                 print("SUCCESS: \(String(describing: showCast))")

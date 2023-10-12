@@ -10,6 +10,12 @@ import SwiftUI
 struct HomeScrollViewItem: View {
     let favoriteService: FavoriteServiceProtocol
     let show: Show
+    @State private var favorites: [Show]
+    init(favoriteService: FavoriteServiceProtocol, show: Show) {
+        self.favoriteService = favoriteService
+        self.show = show
+        _favorites = State(initialValue: favoriteService.favorites)
+    }
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -34,7 +40,7 @@ struct HomeScrollViewItem: View {
                     VStack {
                         HStack {
                             Button(action: {
-                                favoriteService.toggleFavorite(show: show)
+                                _ = favoriteService.toggleFavorite(show: show)
                             }) {
                                 Image(systemName: "heart.fill")
                                     .padding(10)
