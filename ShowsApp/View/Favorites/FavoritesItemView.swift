@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct FavoritesItemView: View {
+    let favoriteService: FavoriteServiceProtocol
     let show: Show
-    @ObservedObject var viewModel: FavoritesViewModel
-    let favoritesService: FavoriteServiceProtocol
-    init(viewModel: FavoritesViewModel, show: Show) {
-        self.viewModel = viewModel
+    @State private var isFavorite: Bool
+    let onToggleFavorite: () -> Void
+
+    init(favoriteService: FavoriteServiceProtocol, show: Show, onToggleFavorite: @escaping () -> Void) {
+        self.favoriteService = favoriteService
         self.show = show
-        self.favoritesService = viewModel.favoritesService
+        self._isFavorite = State(initialValue: favoriteService.isfavorite(show: show))
+        self.onToggleFavorite = onToggleFavorite
     }
     var body: some View {
         ZStack {
@@ -42,12 +45,16 @@ struct FavoritesItemView: View {
             }
             VStack {
                 HStack {
-                    Button(action: {
-                        _ = favoritesService.toggleFavorite(show: show)
-                    }) {
+                    Button {
+                        withAnimation {
+                            _ = favoriteService.toggleFavorite(show: show)
+                            isFavorite.toggle()
+                            onToggleFavorite()
+                       }
+                    } label: {
                         Image(systemName: "heart.fill")
                             .padding(10)
-                            .foregroundColor(favoritesService.isfavorite(show: show) ? Color("PrimaryYellow") : Color("PrimaryLightGray"))
+                            .foregroundColor(isFavorite ? Color("PrimaryYellow") : Color("PrimaryLightGray"))
                             .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("PrimaryBlack")))
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -60,12 +67,8 @@ struct FavoritesItemView: View {
             .alignmentGuide(.top) { _ in 0 }
             .alignmentGuide(.leading) { _ in 0 }
         }
-    }
-}
-
-
-struct FavoritesItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesItemView(viewModel: FavoritesViewModel(favoritesService: FavoriteService(persistenceService: PersistenceService())), show: Show.example)
+        .onAppear() {
+            isFavorite = favoriteService.isfavorite(show: show)
+        }
     }
 }

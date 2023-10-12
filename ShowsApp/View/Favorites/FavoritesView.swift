@@ -14,10 +14,12 @@ struct FavoritesView: View {
             LazyVGrid(columns: [GridItem(), GridItem()]) {
                 ForEach(viewModel.favorites) { show in
                     VStack {
-                        FavoritesItemView(viewModel: viewModel, show: show)
-                            .onTapGesture {
-                                viewModel.onShowTapped?(show)
-                            }
+                        FavoritesItemView(favoriteService: viewModel.favoritesService, show: show) {
+                            viewModel.refresh()
+                        }
+                        .onTapGesture {
+                            viewModel.onShowTapped?(show)
+                        }
                     }
                     .frame(height: 210)
                 }
@@ -29,6 +31,7 @@ struct FavoritesView: View {
         }
     }
 }
+
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {

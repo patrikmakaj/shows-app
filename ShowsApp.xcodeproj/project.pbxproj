@@ -46,6 +46,7 @@
 		72CF15EB2AD535AD00063908 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15E82AD535AD00063908 /* PersistenceService.swift */; };
 		72CF15EC2AD535AD00063908 /* ServicesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15E92AD535AD00063908 /* ServicesFactory.swift */; };
 		72CF15EE2AD6A42600063908 /* FavoritesItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */; };
+		72CF15F22AD82E5900063908 /* FavoritesItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF15F12AD82E5900063908 /* FavoritesItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		72CF15E82AD535AD00063908 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		72CF15E92AD535AD00063908 /* ServicesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesFactory.swift; sourceTree = "<group>"; };
 		72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemView.swift; sourceTree = "<group>"; };
+		72CF15F12AD82E5900063908 /* FavoritesItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				7274F5DF2AC564440079DE1F /* FavoritesViewModel.swift */,
 				7274F5E12AC5645A0079DE1F /* FavoritesCoordinator.swift */,
 				72CF15ED2AD6A42600063908 /* FavoritesItemView.swift */,
+				72CF15F12AD82E5900063908 /* FavoritesItemViewModel.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				72BF9C412ABB4062005559D7 /* Cover.swift in Sources */,
 				7274F5EC2ACAFC3E0079DE1F /* ScheduleScrollViewItem.swift in Sources */,
 				72BF9C502ABDC49A005559D7 /* AppDelegate.swift in Sources */,
+				72CF15F22AD82E5900063908 /* FavoritesItemViewModel.swift in Sources */,
 				7274F5E02AC564440079DE1F /* FavoritesViewModel.swift in Sources */,
 				72CF15EE2AD6A42600063908 /* FavoritesItemView.swift in Sources */,
 				72633EA82AB9983500BBF70C /* NetworkConfiguration.swift in Sources */,

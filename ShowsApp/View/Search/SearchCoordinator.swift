@@ -11,9 +11,11 @@ import SwiftUI
 
 final class SearchCoordinator: Coordinator {
 
-    
+    let serviceFactory: ServiceFactory
+    init(serviceFactory: ServiceFactory) {
+        self.serviceFactory = serviceFactory
+    }
     private var navigationController: BaseNavigationController = BaseNavigationController()
-    
     func start() -> UIViewController {
         return createSearchController()
     }
@@ -37,8 +39,8 @@ final class SearchCoordinator: Coordinator {
     }
     
     private func createDetailView(show: Show) -> UIViewController {
-        let vm = DetailViewModel(show: show, favoriteService: FavoriteService(persistenceService: PersistenceService()))
-        let detailView = DetailView(viewModel: vm)
+        let vm = DetailViewModel(show: show, favoriteService: serviceFactory.favoriteService)
+        let detailView = DetailView(viewModel: vm, favoriteService: serviceFactory.favoriteService)
         let vc = UIHostingController(rootView: detailView)
         navigationController.pushViewController(vc, animated: true)
         return navigationController

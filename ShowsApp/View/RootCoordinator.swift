@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class BaseNavigationController: UINavigationController {}
+final class BaseNavigationController: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        edgesForExtendedLayout = .all
+    }
+}
 
 final class RootCoordinator: Coordinator, ObservableObject {
     
@@ -18,7 +23,7 @@ final class RootCoordinator: Coordinator, ObservableObject {
     
     init(serviceFactory: ServiceFactory) {
         self.serviceFactory = serviceFactory
-        childCoordinators = [HomeCoordinator(serviceFactory: serviceFactory), SearchCoordinator(), FavoritesCoordinator(serviceFactory: serviceFactory)]
+        childCoordinators = [HomeCoordinator(serviceFactory: serviceFactory), SearchCoordinator(serviceFactory: serviceFactory), FavoritesCoordinator(serviceFactory: serviceFactory)]
     }
     
     func start() -> UIViewController {

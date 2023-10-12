@@ -54,6 +54,7 @@ class FavoriteService: FavoriteServiceProtocol, ObservableObject {
 
     
     func isfavorite(show: Show) -> Bool {
+        updateFavorites()
         return favorites.contains(show)
     }
     

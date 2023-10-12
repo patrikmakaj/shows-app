@@ -10,11 +10,12 @@ import SwiftUI
 struct HomeScrollViewItem: View {
     let favoriteService: FavoriteServiceProtocol
     let show: Show
-    @State private var favorites: [Show]
+    @State private var isFavorite: Bool
+
     init(favoriteService: FavoriteServiceProtocol, show: Show) {
         self.favoriteService = favoriteService
         self.show = show
-        _favorites = State(initialValue: favoriteService.favorites)
+        _isFavorite = State(initialValue: favoriteService.isfavorite(show: show))
     }
     var body: some View {
         VStack {
@@ -39,13 +40,17 @@ struct HomeScrollViewItem: View {
                     .frame(width: 180, height: 300)
                     VStack {
                         HStack {
-                            Button(action: {
-                                _ = favoriteService.toggleFavorite(show: show)
-                            }) {
+                            Button {
+                                withAnimation {
+                                    _ = favoriteService.toggleFavorite(show: show)
+                                    isFavorite.toggle()
+                               }
+                            } label: {
                                 Image(systemName: "heart.fill")
                                     .padding(10)
-                                    .foregroundColor(favoriteService.isfavorite(show: show) ? Color("PrimaryYellow") : Color("PrimaryLightGray"))
+                                    .foregroundColor(isFavorite ? Color("PrimaryYellow") : Color("PrimaryLightGray"))
                                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("PrimaryBlack")))
+                                    .scaleEffect(isFavorite ? 1.1 : 1.0)
                             }
                             .buttonStyle(PlainButtonStyle())
                             .border(Color("PrimaryLightGray"), width: 1)
@@ -74,6 +79,9 @@ struct HomeScrollViewItem: View {
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(show.name)
+            .onAppear() {
+                isFavorite = favoriteService.isfavorite(show: show)
+            }
         }
     }
 

@@ -42,7 +42,7 @@ extension DetailViewModel {
     }
     
     func toggleFavorites() {
-        isFavorite = favoriteService.toggleFavorite(show: show).isAdded
+        _ = favoriteService.toggleFavorite(show: show)
     }
     
     func refresh() {
