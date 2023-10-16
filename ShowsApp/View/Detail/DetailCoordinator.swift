@@ -25,7 +25,19 @@ final class DetailCoordinator: Coordinator {
         let vm = DetailViewModel(show: Show.example, favoriteService: FavoriteService(persistenceService: PersistenceService()))
         let detailView = DetailView(viewModel: vm, favoriteService: FavoriteService(persistenceService: PersistenceService()))
         let vc = UIHostingController(rootView: detailView)
+        vm.onShowAllCast = { [weak self] allCast in
+            _ = self?.createCastController(cast: allCast)
+        }
         navigationController.pushViewController(vc, animated: true)
         return navigationController
     }
+    
+    private func createCastController(cast: [Int: (Person, Character?)]) -> UIViewController {
+        let vm = CastViewModel(cast: cast)
+        let castView = CastView(viewModel: vm)
+        let vc = UIHostingController(rootView: castView)
+        navigationController.pushViewController(vc, animated: true)
+        return navigationController
+    }
+    
 }

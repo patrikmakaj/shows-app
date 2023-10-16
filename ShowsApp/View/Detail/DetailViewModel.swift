@@ -13,6 +13,7 @@ final class DetailViewModel: ObservableObject {
     @ObservedObject var networkingService = NetworkingService()
     @Published var cast: [Int: (Person, Character?)] = [:]
     @Published var isFavorite: Bool
+    var onShowAllCast: (([Int: (Person, Character?)]) -> Void)?
     let favoriteService: FavoriteServiceProtocol
     init(show: Show, favoriteService: FavoriteServiceProtocol) {
         self.favoriteService = favoriteService

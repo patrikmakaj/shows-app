@@ -17,7 +17,9 @@ struct HomeView: View {
                         .font(.title2.bold())
                         .foregroundColor(Color("PrimaryLightGray"))
                     Spacer()
-                    Button("Show all") {}
+                    Button("Show all") {
+                        viewModel.onShowAllTapped?(viewModel.shows)
+                    }
                         .font(.footnote)
                         .foregroundColor(Color("PrimaryYellow"))
                 }
@@ -44,7 +46,9 @@ struct HomeView: View {
                         .font(.title3.bold())
                         .foregroundColor(Color("PrimaryLightGray"))
                     Spacer()
-                    Button("Show all") {}
+                    Button("Show all") {
+                        viewModel.onShowAllTapped?(viewModel.scheduleShows)
+                    }
                         .font(.footnote)
                         .foregroundColor(Color("PrimaryYellow"))
                 }

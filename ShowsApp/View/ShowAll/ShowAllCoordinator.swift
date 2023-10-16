@@ -1,15 +1,15 @@
 //
-//  HomeCoordinator.swift
+//  ShowAllCoordinator.swift
 //  ShowsApp
 //
-//  Created by Patrik Makaj on 27.09.2023..
+//  Created by Patrik Makaj on 12.10.2023..
 //
 
 import Foundation
 import UIKit
 import SwiftUI
 
-final class HomeCoordinator: Coordinator {
+final class ShowAllCoordinator: Coordinator {
     private var navigationController: BaseNavigationController = BaseNavigationController()
     let serviceFactory: ServiceFactory
 
@@ -18,31 +18,17 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() -> UIViewController {
-        return createHomeController()
+        return createShowAllController(allShows: [Show.example])
     }
-    
+
     var tabBarItem: UITabBarItem {
         UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: UIImage(systemName: "house.fill"))
     }
     
-    private func createHomeController() -> UIViewController {
-        let vm = HomeViewModel(favoritesService: serviceFactory.favoriteService)
-        let homeView = HomeView(viewModel: vm)
-        let vc = UIHostingController(rootView: homeView)
-        vm.onShowTapped = { [weak self] show in
-            _ = self?.createDetailView(show: show)
-        }
-        vm.onShowAllTapped = { [weak self] allShows in
-            _ = self?.createShowAllController(allShows: allShows)
-        }
-        navigationController.pushViewController(vc, animated: true)
-        return navigationController
-    }
-        
     private func createShowAllController(allShows: [Show]) -> UIViewController {
         let vm = ShowAllViewModel(allShows: allShows, favoritesService: serviceFactory.favoriteService)
-        let homeView = ShowAllView(viewModel: vm)
-        let vc = UIHostingController(rootView: homeView)
+        let showAllView = ShowAllView(viewModel: vm)
+        let vc = UIHostingController(rootView: showAllView)
         vm.onShowTapped = { [weak self] show in
             _ = self?.createDetailView(show: show)
         }

@@ -38,12 +38,12 @@ struct ScheduleScrollViewItem: View {
                         ProgressView()
                     }
                 }
-
+                
                 VStack {
                     HStack {
                         Button {
                             withAnimation {
-                                _ = favoriteService.toggleFavorite(show: show)
+                                favoriteService.toggleFavorite(show: show)
                                 isFavorite.toggle()
                            }
                         } label: {
