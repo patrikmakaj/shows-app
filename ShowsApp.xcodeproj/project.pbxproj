@@ -53,6 +53,8 @@
 		72CF16042ADD563E00063908 /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF16032ADD563E00063908 /* CastView.swift */; };
 		72CF16072ADD56A200063908 /* CastCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF16062ADD56A200063908 /* CastCoordinator.swift */; };
 		72CF16092ADD56B700063908 /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF16082ADD56B700063908 /* CastViewModel.swift */; };
+		72CF160C2ADEAB8F00063908 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF160B2ADEAB8F00063908 /* PersonView.swift */; };
+		72CF160E2ADEACD100063908 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF160D2ADEACD100063908 /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		72CF16032ADD563E00063908 /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
 		72CF16062ADD56A200063908 /* CastCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCoordinator.swift; sourceTree = "<group>"; };
 		72CF16082ADD56B700063908 /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
+		72CF160B2ADEAB8F00063908 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		72CF160D2ADEACD100063908 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 				7274F5E72ACAE05C0079DE1F /* Schedule.swift */,
 				7274F5E92ACAE8940079DE1F /* Episode.swift */,
 				7274F5F42ACC3F250079DE1F /* Character.swift */,
+				72CF160D2ADEACD100063908 /* Country.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 		72BF9C422ABB40CF005559D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72CF160A2ADEAB8100063908 /* Person */,
 				72CF16052ADD567200063908 /* CastAll */,
 				72CF15F52AD85DA300063908 /* ShowAll */,
 				7274F5CF2AC49B220079DE1F /* Root */,
@@ -281,6 +287,14 @@
 				72CF16062ADD56A200063908 /* CastCoordinator.swift */,
 			);
 			path = CastAll;
+			sourceTree = "<group>";
+		};
+		72CF160A2ADEAB8100063908 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				72CF160B2ADEAB8F00063908 /* PersonView.swift */,
+			);
+			path = Person;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CF160C2ADEAB8F00063908 /* PersonView.swift in Sources */,
 				72CF15EB2AD535AD00063908 /* PersistenceService.swift in Sources */,
 				72633EA72AB9983500BBF70C /* NetworkingService.swift in Sources */,
 				72BF9C3B2AB9FE99005559D7 /* SearchBarView.swift in Sources */,
@@ -384,6 +399,7 @@
 				7274F5D72AC49B9F0079DE1F /* RootCoordinator.swift in Sources */,
 				72CF16042ADD563E00063908 /* CastView.swift in Sources */,
 				72BF9C522ABDC4C3005559D7 /* SceneDelegate.swift in Sources */,
+				72CF160E2ADEACD100063908 /* Country.swift in Sources */,
 				72633EAA2AB998B200BBF70C /* SearchView.swift in Sources */,
 				72BF9C4E2ABDC29C005559D7 /* FavoritesView.swift in Sources */,
 				72BF9C482ABC61B0005559D7 /* Person.swift in Sources */,
