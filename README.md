@@ -8,7 +8,7 @@ Shows App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava
 - Prikazuje detaljne informacije o odabranoj TV emisiji ili filmu.
 - Omogućava korisnicima da vide osnovne podatke, glumačku postavu, opis i druge relevantne informacije.
 - Moguće je klikom na određenog glumca doći do informacija o njemu(dob, mjesto rođenja).
-- <img src="assets/showsAppDetail" width="150" style="float:left;">&nbsp;
+- <img src="patrikmakaj/patrikmakaj/blob/main/assets/showsAppDetail.png" width="150" style="float:left;">&nbsp;
 
 
 ### 2. Home View
