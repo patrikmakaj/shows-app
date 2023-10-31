@@ -1,6 +1,6 @@
-# Show App
+# Shows App
 
-Show App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava korisnicima da istraže različite TV emisije i filmove kroz [API](https://www.tvmaze.com/api). Aplikacija ima četiri glavna viewa: Detail View, Home View, Favorites View i Search View.
+Shows App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava korisnicima da istraže različite TV emisije i filmove kroz [API](https://www.tvmaze.com/api). Aplikacija ima četiri glavna viewa: Detail View, Home View, Favorites View i Search View.
 
 ## Funkcionalnosti
 
