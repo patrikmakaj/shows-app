@@ -1,6 +1,6 @@
-# Shows App
+# Show App
 
-Shows App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava korisnicima da istraže različite TV emisije i filmove kroz [API](https://www.tvmaze.com/api). Aplikacija ima četiri glavna viewa: Detail View, Home View, Favorites View i Search View.
+Show App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava korisnicima da istraže različite TV emisije i filmove kroz [API](https://www.tvmaze.com/api). Aplikacija ima četiri glavna viewa: Detail View, Home View, Favorites View i Search View.
 
 ## Funkcionalnosti
 
@@ -8,21 +8,31 @@ Shows App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava
 - Prikazuje detaljne informacije o odabranoj TV emisiji ili filmu.
 - Omogućava korisnicima da vide osnovne podatke, glumačku postavu, opis i druge relevantne informacije.
 - Moguće je klikom na određenog glumca doći do informacija o njemu(dob, mjesto rođenja).
-- <img src="patrikmakaj/patrikmakaj/blob/main/assets/showsAppDetail.png" width="150" style="float:left;">&nbsp;
+   <div style="display: flex;">
+    <img src="https://raw.githubusercontent.com/patrikmakaj/patrikmakaj/main/assets/showsAppDetail.png" width="150" style="margin-right: 20px;">
+    <img src="https://raw.githubusercontent.com/patrikmakaj/patrikmakaj/main/assets/showsAppCast.png" width="150">
+</div>
+
 
 
 ### 2. Home View
 - Prikazuje preporučene TV emisije i filmove korisnicima na osnovu njihovih interakcija i pretraga.
 - Omogućava korisnicima da istraže nove sadržaje i prate trendove.
 - Prikazuje potpuni TV raspored za trenutni dan.
+<img src="https://raw.githubusercontent.com/patrikmakaj/patrikmakaj/main/assets/showsAppHome.png" width="150" style="float:left;">&nbsp;
+
 
 ### 3. Favorites View
 - Omogućava korisnicima da označe svoje omiljene TV emisije i filmove.
 - Čuva popis omiljenih sadržaja za brz pristup.
+<img src="https://raw.githubusercontent.com/patrikmakaj/patrikmakaj/main/assets/showsAppFavorites.png" width="150" style="float:left;">&nbsp;
+
 
 ### 4. Search View
 - Omogućava korisnicima da pretražuju različite TV emisije i filmove na osnovu ključnih riječi, žanrova ili glumaca.
 - Prikazuje rezultate pretrage u realnom vremenu.
+<img src="https://raw.githubusercontent.com/patrikmakaj/patrikmakaj/main/assets/showsAppSearch.png" width="150" style="float:left;">&nbsp;
+
 
 ## Kako Pokrenuti Aplikaciju
 
@@ -31,6 +41,7 @@ Shows App je iOS aplikacija kreirana u Swift programskom jeziku, koja omogućava
 3. Odaberite odgovarajući simulator ili vaš fizički uređaj za pokretanje aplikacije.
 4. Pritisnite gumb "Run" u Xcode-u ili `Cmd + R` na tipkovnici da pokrenete aplikaciju.
 5. Aplikacija će se pokrenuti na odabranom simulatoru ili vašem uređaju.
+
 
 ## Tehnički Zahtjevi
 
